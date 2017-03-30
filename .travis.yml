@@ -1,0 +1,14 @@
+---
+sudo: false
+
+language: go
+
+go:
+  - 1.6
+  - 1.7.x
+
+install:
+  - go get github.com/onsi/ginkgo/ginkgo
+
+script:
+  - go test $(go list ./... | grep -v /vendor/) -cover
