@@ -1,8 +1,8 @@
 hash: 999413f3f6106f49d166afbdeef5e7762d14bf5fe165977c36a57c72a2ced35a
-updated: 2017-03-31T14:53:16.114213962-04:00
+updated: 2017-03-31T16:27:43.435420783-04:00
 imports:
 - name: github.com/ess/mockable
-  version: 4ac6904be3fa1fb5fff293d9de54322ab10368c7
+  version: f2fa9b6a24f488147ec679d71092def35b2da2be
 testImports:
 - name: github.com/onsi/ginkgo
   version: 13c94a130ef24c498bdb2d8d3873cf7790925dcf
