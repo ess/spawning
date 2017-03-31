@@ -29,9 +29,7 @@ func NewSequentialPool() Pool {
 }
 
 func Run(command string) *Result {
-	pool := NewSequentialPool()
-	pool.Add(command)
-	return pool.Run()[0]
+	return NewSequentialPool().Add(command).Run()[0]
 }
 
 func prefixedCommand(command string) *exec.Cmd {
