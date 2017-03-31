@@ -1,0 +1,4 @@
+package: github.com/ess/spawning
+import:
+- package: github.com/ess/mockable
+  version: ~0.1.1
