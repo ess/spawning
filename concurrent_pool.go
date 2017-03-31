@@ -4,15 +4,17 @@ import (
 	"os/exec"
 )
 
-type realPool struct {
+type concurrentPool struct {
 	commands []*exec.Cmd
 }
 
-func (pool *realPool) Add(cmd string) {
-	pool.commands = append(pool.commands, exec.Command("bash", "-c", cmd))
+func (pool *concurrentPool) Add(cmd string) Pool {
+	pool.commands = append(pool.commands, prefixedCommand(cmd))
+
+	return pool
 }
 
-func (pool *realPool) getResult(command *exec.Cmd, results chan<- *Result) {
+func (pool *concurrentPool) getResult(command *exec.Cmd, results chan<- *Result) {
 	result := &Result{
 		Command: command.Args[len(command.Args)-1],
 		Success: true,
@@ -28,7 +30,7 @@ func (pool *realPool) getResult(command *exec.Cmd, results chan<- *Result) {
 	results <- result
 }
 
-func (pool *realPool) Run() []*Result {
+func (pool *concurrentPool) Run() []*Result {
 	results := make(chan *Result, len(pool.commands))
 
 	ret := make([]*Result, 0)

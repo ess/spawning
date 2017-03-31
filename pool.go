@@ -1,6 +1,6 @@
 package spawning
 
 type Pool interface {
-	Add(string)
+	Add(string) Pool
 	Run() []*Result
 }

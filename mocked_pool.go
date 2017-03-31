@@ -4,8 +4,10 @@ type mockedPool struct {
 	commands []string
 }
 
-func (pool *mockedPool) Add(cmd string) {
+func (pool *mockedPool) Add(cmd string) Pool {
 	pool.commands = append(pool.commands, cmd)
+
+	return pool
 }
 
 func (pool *mockedPool) Run() []*Result {
