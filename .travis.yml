@@ -9,6 +9,8 @@ go:
 
 install:
   - go get github.com/onsi/ginkgo/ginkgo
+  - "curl https://glide.sh/get | sh"
+  - glide install
 
 script:
   - go test $(go list ./... | grep -v /vendor/) -cover
