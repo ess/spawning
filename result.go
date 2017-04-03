@@ -15,9 +15,9 @@ func (result *Result) String() string {
 	var status string
 
 	if result.Success {
-		status = "succeeded"
+		status = "success"
 	} else {
-		status = "failed"
+		status = "failure"
 	}
 
 	return fmt.Sprintf("%s : %s", result.Command, status)

@@ -28,9 +28,9 @@ func ExampleConcurrently() {
 	}
 
 	// Output:
-	// false : failed
-	// echo "I am fast, so you see me first" ; sleep 0.1 : succeeded
-	// echo "I am slow, so you see me last" ; sleep 0.2 : succeeded
+	// false : failure
+	// echo "I am fast, so you see me first" ; sleep 0.1 : success
+	// echo "I am slow, so you see me last" ; sleep 0.2 : success
 }
 
 func ExampleSequentially() {
@@ -44,17 +44,17 @@ func ExampleSequentially() {
 	}
 
 	// Output:
-	// echo "I am first, so you see me first" ; sleep 0.2 : succeeded
-	// echo "I am last, so you see me last" : succeeded
-	// false : failed
+	// echo "I am first, so you see me first" ; sleep 0.2 : success
+	// echo "I am last, so you see me last" : success
+	// false : failure
 }
 
 func ExamplePool_Run() {
 	var allResults []*spawning.Result
 
 	pool := spawning.NewPool().
-		Add("true").
-		Add("false")
+		Add("sleep 0.1 ; true").
+		Add("sleep 0.2 ; false")
 
 	// Run the commands sequentially
 	allResults = append(allResults, pool.Run(spawning.Sequentially())...)
@@ -73,12 +73,12 @@ func ExamplePool_Run() {
 	}
 
 	// Output:
-	// true : succeeded
-	// false : failed
-	// true : succeeded
-	// false : failed
-	// true : succeeded
-	// false : succeeded
-	// true : succeeded
-	// false : succeeded
+	// sleep 0.1 ; true : success
+	// sleep 0.2 ; false : failure
+	// sleep 0.1 ; true : success
+	// sleep 0.2 ; false : failure
+	// sleep 0.1 ; true : success
+	// sleep 0.2 ; false : success
+	// sleep 0.1 ; true : success
+	// sleep 0.2 ; false : success
 }
