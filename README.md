@@ -181,4 +181,5 @@ func processResult(result *spawning.Result) {
 
 ## History ##
 
+* v0.1.1 - I'm a jerk that forgets to include a license
 * v0.1.0 - Initial release
