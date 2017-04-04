@@ -1,0 +1,6 @@
+hash: 87c7f0fcadaef812a4c9db7b8fc3b6ceb026752a8c03e97f8674cc68090083a6
+updated: 2017-04-03T19:41:07.847319615-04:00
+imports:
+- name: github.com/ess/mockable
+  version: f2fa9b6a24f488147ec679d71092def35b2da2be
+testImports: []
