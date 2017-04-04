@@ -180,3 +180,5 @@ func processResult(result *spawning.Result) {
 ```
 
 ## History ##
+
+* v0.1.0 - Initial release
