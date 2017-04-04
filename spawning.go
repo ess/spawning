@@ -1,39 +1,16 @@
+// Package spawning provides a handy API for spawning shell commands on UNIXish
+// environments.
 package spawning
 
-import (
-	"os/exec"
-
-	"github.com/ess/mockable"
-)
-
-type Result struct {
-	Command string
-	Output  string
-	Success bool
+// NewPool returns a brand new Pool to use for spawning multiple commands.
+func NewPool() *Pool {
+	return &Pool{}
 }
 
-func NewConcurrentPool() Pool {
-	if mockable.Mocked() {
-		return &mockedPool{}
-	}
-
-	return &concurrentPool{}
-}
-
-func NewSequentialPool() Pool {
-	if mockable.Mocked() {
-		return &mockedPool{}
-	}
-
-	return &sequentialPool{}
-}
-
+// Run takes a single string command, spawns the command, and returns the
+// Result of that run.
 func Run(command string) *Result {
-	return NewSequentialPool().
+	return NewPool().
 		Add(command).
-		Run()[0]
-}
-
-func prefixedCommand(command string) *exec.Cmd {
-	return exec.Command("bash", "-c", command)
+		Run(Sequentially())[0]
 }

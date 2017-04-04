@@ -1,46 +1,6 @@
-hash: 999413f3f6106f49d166afbdeef5e7762d14bf5fe165977c36a57c72a2ced35a
-updated: 2017-03-31T16:27:43.435420783-04:00
+hash: 87c7f0fcadaef812a4c9db7b8fc3b6ceb026752a8c03e97f8674cc68090083a6
+updated: 2017-04-03T19:41:07.847319615-04:00
 imports:
 - name: github.com/ess/mockable
   version: f2fa9b6a24f488147ec679d71092def35b2da2be
-testImports:
-- name: github.com/onsi/ginkgo
-  version: 13c94a130ef24c498bdb2d8d3873cf7790925dcf
-  subpackages:
-  - config
-  - internal/codelocation
-  - internal/containernode
-  - internal/failer
-  - internal/leafnodes
-  - internal/remote
-  - internal/spec
-  - internal/spec_iterator
-  - internal/specrunner
-  - internal/suite
-  - internal/testingtproxy
-  - internal/writer
-  - reporters
-  - reporters/stenographer
-  - reporters/stenographer/support/go-colorable
-  - reporters/stenographer/support/go-isatty
-  - types
-- name: github.com/onsi/gomega
-  version: 334b8f472b3af5d541c5642701c1e29e2126f486
-  subpackages:
-  - format
-  - internal/assertion
-  - internal/asyncassertion
-  - internal/oraclematcher
-  - internal/testingtsupport
-  - matchers
-  - matchers/support/goraph/bipartitegraph
-  - matchers/support/goraph/edge
-  - matchers/support/goraph/node
-  - matchers/support/goraph/util
-  - types
-- name: golang.org/x/sys
-  version: 9a7256cb28ed514b4e1e5f68959914c4c28a92e0
-  subpackages:
-  - unix
-- name: gopkg.in/yaml.v2
-  version: a3f3340b5840cee44f372bddb5880fcbc419b46a
+testImports: []
